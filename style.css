@@ -5,8 +5,12 @@
 
 }
 
+body{
+    background-image: url("Gambitor.png");
+    background-size: cover;
+}
+
 .navbar {
-    background-color: black;
     text-align: left;
     height: 16%;
     width: 100%;
