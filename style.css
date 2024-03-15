@@ -11,18 +11,35 @@ body{
 }
 
 .navbar {
-    text-align: left;
     height: 16%;
     width: 100%;
     padding-top: 3vh;
     position: fixed;
-    top: 0;
     z-index: 1000;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
-@media screen and (max-width: 1405px) and (min-width: 1205px) {
-    .gambitorh {
-        width: 150px;
-        margin-left: 82px;
-    }
+.navbar-left{
+    margin-left: 6vw;
+    width: 300px;
+}
+
+.navbar-left-div {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-right{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.img1{
+      width: 50px;
+}
+
+.img2 {
+     width: 100px;
 }
