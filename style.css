@@ -34,7 +34,28 @@ body{
 .navbar-right{
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
+    margin: 0px 80px 16px 0px;
+    padding: 0px 0px 0px 32px;
+    height: 80px;
 }
+
+.navbar-right a{
+    color: white;
+    text-decoration: none;
+    font: 20px Goldman;
+    padding: 7px 13px;
+}
+
+.navbar-right ul{
+    
+    height: 80px;
+}
+
+.navbar-right li{
+    margin: 0px 10px;
+}
+
 
 .img1{
       width: 50px;
