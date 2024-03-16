@@ -21,6 +21,8 @@ body{
     justify-content: space-between;
 }
 
+
+
 .navbar-left{
     margin-left: 6vw;
     width: 300px;
@@ -82,3 +84,4 @@ margin: 0px 0px 12px;
 .img2 {
      width: 100px;
 }
+
