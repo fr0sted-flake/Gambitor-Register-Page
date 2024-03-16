@@ -24,11 +24,13 @@ body{
 .navbar-left{
     margin-left: 6vw;
     width: 300px;
-}
-
-.navbar-left-div {
+    height: 80%;
     display: flex;
     align-items: center;
+}
+
+.img1 {
+margin: 0px 0px 12px;
 }
 
 .navbar-right{
@@ -45,6 +47,12 @@ body{
     text-decoration: none;
     font: 20px Goldman;
     padding: 7px 13px;
+   
+}
+
+.result{
+    background-color: #FFB400;
+    border-radius: 0.25rem;
 }
 
 .navbar-right ul{
