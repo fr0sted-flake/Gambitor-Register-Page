@@ -89,15 +89,45 @@ body {
 }
 
 .register {
-    color: #ffb400;
-    font: 4vw Goldman;
+  color: #ffb400;
+  font: 4vw Goldman;
   width: 30vw;
   height: 15vh;
   margin-top: 10vh;
-  margin-bottom: 12vh;
+  margin-bottom: 8vh;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 5px solid #ffb400;
   border-radius: 5px 30px 5px 30px;
 }
+
+.form-container {
+  
+    position: relative;
+    width: 40vw; 
+}
+
+.background-img {
+    width: 100%; 
+    display: block; 
+}
+
+.form-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40vw; 
+    height: 100%; 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    width: 100%; 
+    padding: 20px;
+
+
+  }
