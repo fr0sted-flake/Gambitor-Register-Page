@@ -139,7 +139,6 @@ form {
   font-weight: 500;
   line-height: 4vw;
   letter-spacing: -0.05em;
-  padding: 0;
 }
 
 .input {
@@ -181,7 +180,7 @@ form {
 }
 
 .logoF {
-  width: 80%;
+  width: 70%;
 }
 
 .part2 {
@@ -193,7 +192,7 @@ form {
 }
 
 .part2 li {
-  font-size: 20px;
+  font-size: 1.8vh;
   line-height: 18px;
   margin-bottom: 18px;
 }
@@ -207,13 +206,12 @@ form {
   margin-right: 8vw;
 }
 
-
 .part3 ul {
   list-style-type: none;
 }
 
 .part3 li {
-  font-size: 20px;
+  font-size: 1.8vh;
   line-height: 18px;
   margin-bottom: 18px;
 }
@@ -223,36 +221,26 @@ form {
   flex-direction: column;
 }
 
-.part4 h5 {
-  text-align: left;
-  font-size: 24px;
-  margin-bottom: 1vh;
-}
-
 .part4 ul {
   list-style-type: none;
   margin-bottom: 3vh;
-  text-align: left;
+  display: flex;
+  padding-left: 0;
 }
 
 .part4 h5 {
   text-align: left;
-  font-size: 24px;
+  font-size: 2.2vh;
   margin-bottom: 1vh;
 }
 .f-icons {
-  font-size: 28px;
+  font-size: 3vh;
 }
 
 .part4 img {
   margin-top: 2vh;
-  height: 5rem;
-  width: 23rem;
-}
-
-.follow ul {
-  display: flex;
   
+  width: 18vw;
 }
 
 .follow li {
