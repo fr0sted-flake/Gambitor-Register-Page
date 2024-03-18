@@ -127,6 +127,7 @@ justify-content: center;
 form {
 
   padding: 20px;
+  padding-top: 5vh;
   display: block;
   
  
@@ -155,4 +156,22 @@ form {
   border: 0.1rem solid #FFB400;
   border-radius: 0.2rem;
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.submit-button {
+  margin: 1.5vw auto;
+  background-color: #FFB400;
+  width: 15vw;
+  color: white;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1.3vw;
+  font-weight: 400;
+  font-family: "Goldman", cursive;
+  text-align: center;
 }
