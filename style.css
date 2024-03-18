@@ -19,7 +19,6 @@ body {
   align-items: flex-start;
   justify-content: space-between;
   transition: background-color 0.3s ease-in-out;
-
 }
 
 .navbar-left {
@@ -125,7 +124,6 @@ body {
 }
 
 form {
-
   padding-top: 5vw;
   display: block;
 }
@@ -168,8 +166,95 @@ form {
   color: white;
   border: none;
   border-radius: 0.3rem;
-  font-size: 1.3vw;
+  font-size: 1.5vw;
   font-weight: 400;
   font-family: "Goldman", cursive;
   text-align: center;
+}
+
+.footer {
+  font-family: "Jost", sans-serif;
+  margin-top: 20vh;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.logoF {
+  width: 80%;
+}
+
+.part2 {
+  margin-right: 5vw;
+}
+
+.part2 ul {
+  list-style-type: none;
+}
+
+.part2 li {
+  font-size: 20px;
+  line-height: 18px;
+  margin-bottom: 18px;
+}
+
+.text-white {
+  --bs-text-opacity: 1;
+  color: white;
+}
+
+.part3 {
+  margin-right: 8vw;
+}
+
+
+.part3 ul {
+  list-style-type: none;
+}
+
+.part3 li {
+  font-size: 20px;
+  line-height: 18px;
+  margin-bottom: 18px;
+}
+
+.part4 {
+  display: flex;
+  flex-direction: column;
+}
+
+.part4 h5 {
+  text-align: left;
+  font-size: 24px;
+  margin-bottom: 1vh;
+}
+
+.part4 ul {
+  list-style-type: none;
+  margin-bottom: 3vh;
+  text-align: left;
+}
+
+.part4 h5 {
+  text-align: left;
+  font-size: 24px;
+  margin-bottom: 1vh;
+}
+.f-icons {
+  font-size: 28px;
+}
+
+.part4 img {
+  margin-top: 2vh;
+  height: 5rem;
+  width: 23rem;
+}
+
+.follow ul {
+  display: flex;
+  
+}
+
+.follow li {
+  padding-right: 1rem;
 }
