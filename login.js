@@ -9,8 +9,8 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-const auth = getAuth();
-const provider = new GoogleAuthProvider();
+import { auth, provider } from "./firebase-config";
+
 const email = document.getElementById("email").value;
 const password = document.getElementById("password").value;
 const signUp = document.getElementById("sign-up");

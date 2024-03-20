@@ -1,10 +1,21 @@
 import {
-  getAuth,
   signOut,
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
-const auth = getAuth();
+import { auth } from "./firebase-config";
+
+const emailButton = document.getElementById("verify-email");
+const signOutButton = document.getElementById("sign-out");
+
+emailButton.addEventListener("click", function (e) {
+  e.preventDefault();
+});
+
+signOutButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  userSignOut();
+});
 
 //SIGN OUT
 const userSignOut = async () => {
