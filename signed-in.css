@@ -28,9 +28,12 @@ body {
   visibility: hidden;
 }
 
-#button {
-  margin-top: 1vw;
+.buttons-container {
+  display: flex;
+}
 
+.button {
+  margin-top: 1vw;
   background-color: #ffb400;
   width: 14vw;
   height: 3vw;
@@ -41,4 +44,8 @@ body {
   font-weight: 400;
   font-family: "Goldman", cursive;
   text-align: center;
+}
+
+#verify-email {
+  margin-right: 3vw;
 }
