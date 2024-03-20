@@ -22,8 +22,11 @@ const userSignOut = async () => {
   signOut(auth)
     .then(() => {
       alert("You have been signed out");
+      window.location.href="index.html"
     })
     .catch((error) => {
       errorMessage = error.message;
     });
 };
+
+//VERIFY EMAIL
