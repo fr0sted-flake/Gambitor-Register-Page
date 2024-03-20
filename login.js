@@ -1,5 +1,4 @@
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -9,7 +8,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-import { auth, provider } from "./firebase-config";
+import { auth, provider } from "./firebase-config.js";
 
 const email = document.getElementById("email").value;
 const password = document.getElementById("password").value;

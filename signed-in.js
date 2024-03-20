@@ -3,7 +3,7 @@ import {
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
-import { auth } from "./firebase-config";
+import { auth } from "./firebase-config.js";
 
 const emailButton = document.getElementById("verify-email");
 const signOutButton = document.getElementById("sign-out");
