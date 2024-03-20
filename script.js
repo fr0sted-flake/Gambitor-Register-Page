@@ -22,7 +22,6 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth();
 
-console.log(app)
 
 //Scrolling Listener
 window.addEventListener("scroll", function () {
@@ -48,7 +47,7 @@ signUp.addEventListener("click", function (event) {
     .then((userCredential) => {
       // Signed up
       const user = userCredential.user;
-      alert("User signed up successfully!");
+      window.location.href = "signed-in.html";
       // ...
     })
     .catch((error) => {
@@ -71,7 +70,7 @@ signIn.addEventListener("click", function (e) {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      alert("User signed in successfully!");
+      window.location.href = "signed-in.html";
       // ...
     })
     .catch((error) => {
