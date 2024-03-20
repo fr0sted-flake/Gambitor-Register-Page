@@ -1,5 +1,3 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -11,19 +9,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAoV-ZoNDu1KNAeq6if61uZcEVWfdDckT0",
-  authDomain: "gambitor-login.firebaseapp.com",
-  projectId: "gambitor-login",
-  storageBucket: "gambitor-login.appspot.com",
-  messagingSenderId: "1021237623050",
-  appId: "1:1021237623050:web:04ed8b7f00fe0c1d58a2f3",
-  measurementId: "G-8T2W9HDDCN",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 const email = document.getElementById("email").value;
@@ -97,23 +82,12 @@ const userSignInGoogle = async () => {
     });
 };
 
-//SIGN OUT
-const userSignOut = async () => {
-  signOut(auth)
-    .then(() => {
-      alert("You have been signed out");
-    })
-    .catch((error) => {
-      errorMessage = error.message;
-    });
-};
-
 onAuthStateChanged(auth, (user) => {
   if (user) {
     alert("You have signed in");
     window.location.href = "signed-in.html";
   } else {
-    
+    window.location.href = "index.html";
   }
 });
 
