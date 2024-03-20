@@ -6,8 +6,8 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
-  signOut, 
-  onAuthStateChanged
+  signOut,
+  onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -25,8 +25,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth();
-
-
+const provider = new GoogleAuthProvider();
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+const signUp = document.getElementById("sign-up");
+const signIn = document.getElementById("sign-in");
+const signInGoogle = document.getElementById("google");
 
 //Scrolling Listener
 window.addEventListener("scroll", function () {
@@ -41,14 +45,7 @@ window.addEventListener("scroll", function () {
 });
 
 //SIGN UP
-
-const signUp = document.getElementById("sign-up");
-
-signUp.addEventListener("click", function (event) {
-  event.preventDefault();
-  
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+const userSignUp = async () => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed up
@@ -62,17 +59,10 @@ signUp.addEventListener("click", function (event) {
       alert("Error: " + errorMessage);
       // ..
     });
-});
+};
 
 //SIGN IN
-
-const signIn = document.getElementById("sign-in");
-
-signIn.addEventListener("click", function (e) {
-  e.preventDefault();
-
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+const userSignIn = async () => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
@@ -85,35 +75,59 @@ signIn.addEventListener("click", function (e) {
       const errorMessage = error.message;
       alert("Error: " + errorMessage);
     });
-});
+};
 
 //SIGN IN WITH GOOGLE
-
-const signInGoogle = document.getElementById("google");
-signInGoogle.addEventListener("click", function (e) {
-  e.preventDefault();
-
-  const provider = new GoogleAuthProvider();
+const userSignInGoogle = async () => {
   signInWithPopup(auth, provider)
     .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-      // The signed-in user info.
+
       const user = result.user;
       window.location.href = "signed-in.html";
-      // IdP data available using getAdditionalUserInfo(result)
-      // ...
     })
     .catch((error) => {
-      // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
-      // The email of the user's account used.
+
       const email = error.customData.email;
-      // The AuthCredential type that was used.
+
       const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
     });
+};
+
+//SIGN OUT
+const userSignOut = async () => {
+  signOut(auth)
+    .then(() => {
+      alert("You have been signed out");
+    })
+    .catch((error) => {
+      errorMessage = error.message;
+    });
+};
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    alert("You have signed in");
+    window.location.href = "signed-in.html";
+  } else {
     
+  }
+});
+
+signUp.addEventListener("click", function (event) {
+  event.preventDefault();
+  userSignUp();
+});
+
+signIn.addEventListener("click", function (e) {
+  e.preventDefault();
+  userSignIn();
+});
+
+signInGoogle.addEventListener("click", function (e) {
+  e.preventDefault();
+  userSignInGoogle();
 });
