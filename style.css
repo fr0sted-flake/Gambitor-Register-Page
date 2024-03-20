@@ -22,31 +22,40 @@ body {
 }
 
 .navbar-left {
-  margin-left: 6vw;
-  width: 300px;
-  height: 80%;
+  margin-left: 5vw;
+  width: 20vw;
+  height: 13vh;
   display: flex;
   align-items: center;
 }
 
+
+
 .img1 {
+
+  width: 3.5vw;
   margin: 0px 0px 12px;
+}
+
+  
+.img2 {
+  width: 12vw;
+  height: auto;
 }
 
 .navbar-right {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin: 0px 80px 16px 0px;
-  padding: 0px 0px 0px 32px;
+  margin: 0px 1.5vw 16px;
   height: 80px;
 }
 
 .navbar-right a {
   color: white;
   text-decoration: none;
-  font: 20px Goldman;
-  padding: 7px 13px;
+  font: 1.3vw Goldman;
+  padding: 0.5vw 0.5vw;
   transition: color 0.5s;
 }
 
@@ -73,13 +82,7 @@ body {
   color: #ffb400;
 }
 
-.img1 {
-  width: 50px;
-}
 
-.img2 {
-  width: 100px;
-}
 
 .content {
   padding-top: 16vh;
@@ -110,7 +113,6 @@ body {
 
 .background-img {
   width: 100%;
-
 }
 
 .form-div {
@@ -176,7 +178,7 @@ form {
   text-align: center;
 }
 
-.google{
+.google {
   width: 27vw;
 }
 
@@ -248,7 +250,7 @@ form {
 
 .part4 img {
   margin-top: 2vh;
-  
+
   width: 18vw;
 }
 
