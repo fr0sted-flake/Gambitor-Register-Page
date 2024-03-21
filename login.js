@@ -3,18 +3,15 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
-  onAuthStateChanged,
+  sendEmailVerification,
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
 import { auth, provider } from "./firebaseConfig.js";
 
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
 const signUp = document.getElementById("sign-up");
 const signIn = document.getElementById("sign-in");
 const signInGoogle = document.getElementById("google");
 let userCredentials;
-let authStabilized = false;
 
 //Scrolling Listener
 window.addEventListener("scroll", function () {
@@ -30,22 +27,42 @@ window.addEventListener("scroll", function () {
 
 //SIGN UP
 const userSignUp = async () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
   await createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      userCredentials = userCredential.user;
+      const user = userCredential.user;
+      sendEmailVerification(user)
+        .then(() => {
+          alert(
+            "User created successfully. Click on the verification link sent on your mail to sign in with your account!"
+          );
+        })
+        .catch((error) => {
+          alert("Error: " + error.message);
+        });
     })
     .catch((error) => {
       const errorMessage = error.message;
       alert("Error: " + errorMessage);
-      // ..
     });
 };
 
 //SIGN IN
 const userSignIn = async () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
   await signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      userCredentials = userCredential.user;
+      document.getElementById("email").value = "";
+      document.getElementById("password").value = "";
+      const user = userCredential.user;
+      if (user.emailVerified) {
+        userCredentials = user;
+        window.location.href = "signed-in.html";
+      } else {
+        alert("Please verify your email before signing in.");
+      }
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -59,30 +76,14 @@ const userSignInGoogle = async () => {
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-
       userCredentials = result.user;
+      window.location.href = "signed-in.html";
     })
     .catch((error) => {
       const errorMessage = error.message;
       alert("Error: " + errorMessage);
     });
 };
-
-onAuthStateChanged(auth, (user) => {
-  if (user && authStabilized) {
-    alert("You have signed in");
-    window.location.href = "signed-in.html";
-    authStabilized = false;
-    return;
-  } else if (!user && authStabilized) {
-    window.location.href = "index.html";
-    authStabilized = false;
-    return;
-  }
-
-  // Set authStabilized to true after first call
-  authStabilized = true;
-});
 
 signUp.addEventListener("click", function (event) {
   event.preventDefault();

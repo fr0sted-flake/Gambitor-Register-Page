@@ -3,7 +3,7 @@ import {
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
-import { auth } from "./firebase-config.js";
+import { auth } from "./firebaseConfig.js";
 
 const emailButton = document.getElementById("verify-email");
 const signOutButton = document.getElementById("sign-out");
@@ -19,9 +19,8 @@ signOutButton.addEventListener("click", function (e) {
 
 //SIGN OUT
 const userSignOut = async () => {
-  signOut(auth)
+  await signOut(auth)
     .then(() => {
-      alert("You have been signed out");
       window.location.href="index.html"
     })
     .catch((error) => {
