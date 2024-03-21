@@ -12,24 +12,8 @@ body {
 }
 
 .info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.info1 {
   color: #ffb400;
   font: 3vw Goldman;
-}
-
-.info2 {
-  color: #ffb400;
-  font: 1.5vw Goldman;
-  margin-bottom: 1vw;
-  visibility: hidden;
-}
-
-.buttons-container {
-  display: flex;
 }
 
 .button {
@@ -44,8 +28,4 @@ body {
   font-weight: 400;
   font-family: "Goldman", cursive;
   text-align: center;
-}
-
-#verify-email {
-  margin-right: 3vw;
 }

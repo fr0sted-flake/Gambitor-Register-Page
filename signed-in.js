@@ -21,11 +21,9 @@ signOutButton.addEventListener("click", function (e) {
 const userSignOut = async () => {
   await signOut(auth)
     .then(() => {
-      window.location.href="index.html"
+      window.location.href = "index.html";
     })
     .catch((error) => {
       errorMessage = error.message;
     });
 };
-
-//VERIFY EMAIL
