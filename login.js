@@ -5,13 +5,13 @@ import {
   GoogleAuthProvider,
   sendEmailVerification,
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
-
 import { auth, provider } from "./firebaseConfig.js";
+
+let userCredentials = null;
 
 const signUp = document.getElementById("sign-up");
 const signIn = document.getElementById("sign-in");
 const signInGoogle = document.getElementById("google");
-let userCredentials;
 
 //Scrolling Listener
 window.addEventListener("scroll", function () {
@@ -57,9 +57,10 @@ const userSignIn = async () => {
       const user = userCredential.user;
       if (user.emailVerified) {
         userCredentials = user;
-        window.location.href = "signed-in.html";
+
         document.getElementById("email").value = "";
         document.getElementById("password").value = "";
+        window.location.href = "signed-in.html";
       } else {
         alert("Please verify your email before signing in.");
       }
@@ -74,9 +75,10 @@ const userSignIn = async () => {
 const userSignInGoogle = async () => {
   await signInWithPopup(auth, provider)
     .then((result) => {
+      userCredentials = result.user;
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-      userCredentials = result.user;
+
       window.location.href = "signed-in.html";
     })
     .catch((error) => {
@@ -99,5 +101,3 @@ signInGoogle.addEventListener("click", function (e) {
   e.preventDefault();
   userSignInGoogle();
 });
-
-export { userCredentials };

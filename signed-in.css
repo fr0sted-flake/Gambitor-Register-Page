@@ -12,6 +12,7 @@ body {
 }
 
 .info {
+  text-align: center;
   color: #ffb400;
   font: 3vw Goldman;
 }
