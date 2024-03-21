@@ -6,7 +6,7 @@ import {
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
-import { auth, provider } from "./firebase-config.js";
+import { auth, provider } from "./firebaseConfig.js";
 
 const email = document.getElementById("email").value;
 const password = document.getElementById("password").value;
@@ -14,6 +14,7 @@ const signUp = document.getElementById("sign-up");
 const signIn = document.getElementById("sign-in");
 const signInGoogle = document.getElementById("google");
 let userCredentials;
+let authStabilized = false;
 
 //Scrolling Listener
 window.addEventListener("scroll", function () {
@@ -29,7 +30,7 @@ window.addEventListener("scroll", function () {
 
 //SIGN UP
 const userSignUp = async () => {
-  createUserWithEmailAndPassword(auth, email, password)
+  await createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       userCredentials = userCredential.user;
     })
@@ -42,7 +43,7 @@ const userSignUp = async () => {
 
 //SIGN IN
 const userSignIn = async () => {
-  signInWithEmailAndPassword(auth, email, password)
+  await signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       userCredentials = userCredential.user;
     })
@@ -54,7 +55,7 @@ const userSignIn = async () => {
 
 //SIGN IN WITH GOOGLE
 const userSignInGoogle = async () => {
-  signInWithPopup(auth, provider)
+  await signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
@@ -67,13 +68,20 @@ const userSignInGoogle = async () => {
     });
 };
 
-onAuthStateChanged(auth, (userCredentials) => {
-  if (userCredentials) {
+onAuthStateChanged(auth, (user) => {
+  if (user && authStabilized) {
     alert("You have signed in");
     window.location.href = "signed-in.html";
-  } else {
+    authStabilized = false;
+    return;
+  } else if (!user && authStabilized) {
     window.location.href = "index.html";
+    authStabilized = false;
+    return;
   }
+
+  // Set authStabilized to true after first call
+  authStabilized = true;
 });
 
 signUp.addEventListener("click", function (event) {
