@@ -30,3 +30,16 @@ body {
   font-family: "Goldman", cursive;
   text-align: center;
 }
+
+@media screen and (max-width: 600px) {
+  .info {
+    font-size: 6vw;
+  }
+
+  .button {
+    margin-top: 6vw;
+    width: 30vw;
+    height: 8vw;
+    font-size: 5vw;
+  }
+}
