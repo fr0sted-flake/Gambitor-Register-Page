@@ -3,10 +3,8 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
-  signOut,
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 import { auth, provider } from "./firebase-config.js";
 
@@ -15,6 +13,7 @@ const password = document.getElementById("password").value;
 const signUp = document.getElementById("sign-up");
 const signIn = document.getElementById("sign-in");
 const signInGoogle = document.getElementById("google");
+let userCredentials;
 
 //Scrolling Listener
 window.addEventListener("scroll", function () {
@@ -32,13 +31,9 @@ window.addEventListener("scroll", function () {
 const userSignUp = async () => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed up
-      const user = userCredential.user;
-      window.location.href = "../ signed-in.html";
-      // ...
+      userCredentials = userCredential.user;
     })
     .catch((error) => {
-      const errorCode = error.code;
       const errorMessage = error.message;
       alert("Error: " + errorMessage);
       // ..
@@ -49,13 +44,9 @@ const userSignUp = async () => {
 const userSignIn = async () => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      window.location.href = "signed-in.html";
-      // ...
+      userCredentials = userCredential.user;
     })
     .catch((error) => {
-      const errorCode = error.code;
       const errorMessage = error.message;
       alert("Error: " + errorMessage);
     });
@@ -68,21 +59,16 @@ const userSignInGoogle = async () => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
 
-      const user = result.user;
-      window.location.href = "signed-in.html";
+      userCredentials = result.user;
     })
     .catch((error) => {
-      const errorCode = error.code;
       const errorMessage = error.message;
-
-      const email = error.customData.email;
-
-      const credential = GoogleAuthProvider.credentialFromError(error);
+      alert("Error: " + errorMessage);
     });
 };
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
+onAuthStateChanged(auth, (userCredentials) => {
+  if (userCredentials) {
     alert("You have signed in");
     window.location.href = "signed-in.html";
   } else {
