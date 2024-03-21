@@ -1,16 +1,9 @@
-import {
-  signOut,
-  onAuthStateChanged,
-} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
-
+import { signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+import { userCredentials } from "./login.js";
 import { auth } from "./firebaseConfig.js";
 
-const emailButton = document.getElementById("verify-email");
 const signOutButton = document.getElementById("sign-out");
-
-emailButton.addEventListener("click", function (e) {
-  e.preventDefault();
-});
+// document.getElementById("email").textContent= userCredentials.email
 
 signOutButton.addEventListener("click", function (e) {
   e.preventDefault();
@@ -21,6 +14,7 @@ signOutButton.addEventListener("click", function (e) {
 const userSignOut = async () => {
   await signOut(auth)
     .then(() => {
+      console.log("hello")
       window.location.href = "index.html";
     })
     .catch((error) => {

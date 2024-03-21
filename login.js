@@ -54,12 +54,12 @@ const userSignIn = async () => {
   const password = document.getElementById("password").value;
   await signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      document.getElementById("email").value = "";
-      document.getElementById("password").value = "";
       const user = userCredential.user;
       if (user.emailVerified) {
         userCredentials = user;
         window.location.href = "signed-in.html";
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
       } else {
         alert("Please verify your email before signing in.");
       }
@@ -85,8 +85,8 @@ const userSignInGoogle = async () => {
     });
 };
 
-signUp.addEventListener("click", function (event) {
-  event.preventDefault();
+signUp.addEventListener("click", function (e) {
+  e.preventDefault();
   userSignUp();
 });
 
@@ -99,3 +99,5 @@ signInGoogle.addEventListener("click", function (e) {
   e.preventDefault();
   userSignInGoogle();
 });
+
+export { userCredentials };
