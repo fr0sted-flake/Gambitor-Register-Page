@@ -254,3 +254,154 @@ form {
 .follow li {
   padding-right: 1rem;
 }
+
+
+@media screen and (max-width: 600px) {
+  
+  #navbar {
+    height: 10vh; /* Adjusted height for mobile */
+    padding-top: 2vh; /* Adjusted padding for mobile */
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    align-items: center; /* Adjusted alignment for mobile */
+    justify-content: space-between;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .navbar-left {
+    margin-left: 5vw;
+    width: 30%; /* Adjusted width for mobile */
+    height: auto; /* Adjusted height for mobile */
+    display: flex;
+    align-items: center;
+  }
+  
+  .img1 {
+    width: 8vw; /* Adjusted width for mobile */
+    margin: 0px 0px 6px; /* Adjusted margin for mobile */
+  }
+  
+  .img2 {
+    width: 30%; /* Adjusted width for mobile */
+    height: auto;
+  }
+  
+  .navbar-right {
+    display: none; /* Hide navbar-right for mobile */
+  }
+  
+  .content {
+    padding-top: 10vh; /* Adjusted padding for mobile */
+  }
+  
+  .register {
+    color: #ffb400;
+    font-size: 5vw; /* Adjusted font size for mobile */
+    width: 80%; /* Adjusted width for mobile */
+    height: auto; /* Adjusted height for mobile */
+    margin: 10vh auto 8vh; /* Adjusted margin for mobile */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #ffb400;
+    border-radius: 5px;
+  }
+  
+  .form-container {
+    position: relative;
+    width: 90%; /* Adjusted width for mobile */
+  }
+  
+  .background-img {
+    width: 100%;
+  }
+  
+  .form-div {
+    position: absolute;
+    padding-left: 5%; /* Adjusted padding for mobile */
+    top: 0;
+    left: -3%;
+    width: 90%; /* Adjusted width for mobile */
+  }
+  
+  .title {
+    margin: 1vh 0 0 0; /* Adjusted margin for mobile */
+    font-size: 4vw; /* Adjusted font size for mobile */
+    line-height: 6vh; /* Adjusted line height for mobile */
+  }
+  
+  .input {
+    width: 90%; /* Adjusted width for mobile */
+    height: 6vh; /* Adjusted height for mobile */
+    font-size: 3vw; /* Adjusted font size for mobile */
+  }
+  
+  .button-container {
+    padding-left: 2%; /* Adjusted padding for mobile */
+  }
+  
+  .submit-button {
+    margin-top: 2vh; /* Adjusted margin for mobile */
+    width: 40%; /* Adjusted width for mobile */
+    height: 6vh; /* Adjusted height for mobile */
+    font-size: 3vw; /* Adjusted font size for mobile */
+  }
+  
+  .google {
+    width: 90%; /* Adjusted width for mobile */
+  }
+  
+  .footer {
+    font-family: "Jost", sans-serif;
+    margin-top: 20vh;
+    height: auto; /* Adjusted height for mobile */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow items to wrap for mobile */
+  }
+  
+  .logoF {
+    width: 70%;
+  }
+  
+  .part2,
+  .part3,
+  .part4 {
+    margin-right: 0; /* Adjusted margin for mobile */
+  }
+  
+  .part2 ul,
+  .part3 ul {
+    list-style-type: none;
+    padding-left: 0; /* Adjusted padding for mobile */
+  }
+  
+  .part2 li,
+  .part3 li {
+    font-size: 3vw; /* Adjusted font size for mobile */
+    line-height: 4vh; /* Adjusted line height for mobile */
+    margin-bottom: 4vh; /* Adjusted margin for mobile */
+  }
+  
+  .part4 ul {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap for mobile */
+    margin-bottom: 3vh;
+  }
+  
+  .part4 h5 {
+    font-size: 4vw; /* Adjusted font size for mobile */
+    margin-bottom: 2vh; /* Adjusted margin for mobile */
+  }
+  
+  .f-icons {
+    font-size: 4vw; /* Adjusted font size for mobile */
+  }
+  
+  .part4 img {
+    margin-top: 4vh; /* Adjusted margin for mobile */
+    width: 80%; /* Adjusted width for mobile */
+  }
+  
+}
